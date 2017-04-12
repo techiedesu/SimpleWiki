@@ -1,0 +1,2 @@
+# SimpleWiki
+Simple wiki
