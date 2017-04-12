@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Edit</title>
+        <meta charset="UTF-8">
+        <style type="text/css">
+            body {
+                background-color: #EEE; 
+            }
+            #content {
+                font-family: sans-serif;
+                align-self: center;
+                width: 75%;
+                margin: auto;
+            }
+            button {
+                 background:none!important;
+                 color:inherit;
+                 border:none; 
+                 padding:0!important;
+                 font: inherit;
+                 /*border is optional*/
+                 border-bottom:1px solid #444; 
+                 cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="content">
+        <form action="/wiki/{{original_link}}/edit" method="post">
+             <textarea name="title" rows="2" style="width: 100%;">{{title|e}}</textarea>
+             <textarea name="body" rows="30" style="width: 100%;">{{body|e}}</textarea>
+              <hr>
+            <div id="controls">
+                  <a style="float: left;" href="/wiki/{{original_link}}">Просмотр страницы</a> 
+                  
+            </div>
+            <button type="submit" value="Submit" style="float: right;">Сохранить</button>
+        </form>
+        </div>
+    </body>
+</html>

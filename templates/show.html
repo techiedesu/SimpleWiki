@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <title>Wiki</title>
+        <meta charset="UTF-8">
+        <style type="text/css">
+            body {
+                background-color: #EEE; 
+            }
+            #content {
+                font-family: sans-serif;
+                align-self: center;
+                width: 75%;
+                margin: auto;
+            }
+            #content h1 {
+                text-align: center;
+            }
+        </style>
+        <script type="text/javascript">
+        window.onload = function () {
+            document.querySelectorAll('.wiki-link').forEach(function(link) {
+                // TODO: Спросить сервер жива ли страница
+                var xmlHttp = new XMLHttpRequest();
+                xmlHttp.open( "GET", "/api/exist?page=" + link.getAttribute("href"), false);
+                xmlHttp.send( null );
+                y = xmlHttp.responseText;
+                //
+                var x = false;
+
+                link.style.color = (y == 'true') ? "blue" : "red";
+            });
+            };
+        </script>
+    </head>
+    <body>
+        <div id="content">
+            <h1>{{title|e}}</h1>
+            <p>
+                {{body}}
+            </p>
+            <hr>
+            <div id="controls">
+                  <a style="float: left;" href="/wiki/{{original_link}}/edit">Редактировать</a> 
+                  <a style="float: right;" href="/wiki/{{original_link}}/delete">Удалить</a>
+            </div>
+        </div>
+    </body>
+</html>
