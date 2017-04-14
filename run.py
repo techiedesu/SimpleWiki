@@ -65,9 +65,9 @@ def delete_page(page_addr):
     current_page = Page.query.filter_by(addr = page_addr)
     if current_page.count() != 0:
         db.session.delete(current_page.first())
-        db.session.commit()   
+        db.session.commit()
     return redirect("/wiki/index")
-    
+
 # ajax
 @app.route('/api/exist', methods=['GET'])
 def is_page_exist():
