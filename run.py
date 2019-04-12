@@ -97,4 +97,4 @@ db.session.add(index_page)
 db.session.commit()
 
 # run!
-app.run(debug=True)
+# app.run()
